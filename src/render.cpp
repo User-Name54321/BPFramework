@@ -29,15 +29,18 @@ namespace BPF {
 		SDL_DestroyRenderer(renderer);
 	};
 
-
+	
+	void Render::createTexture(std::string path) // add newly created sprite to vector
 	{
 		spriteList.emplace_back(Sprite(renderer, path));
 	}
-
+	
+	void Render::submitTexture(Sprite* ptr) // add pointer to sprite to list to be rendered - might want to make it so it doesnt need to be wiped or searched every time render status needs to be changed
 	{
 		renderList.push_back(ptr);
 	}
-
+	
+	void Render::draw() //render listed textures
 	{
 		for (int i = 0; i < renderList.size(); i++) {
 			SDL_RenderTextureRotated(renderer, renderList[i]->texture, NULL, NULL, 0, NULL, SDL_FLIP_VERTICAL); // need to replace 1st 2 NULLs with SDL_frect and 0 with double for rotation

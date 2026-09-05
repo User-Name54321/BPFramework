@@ -5,6 +5,7 @@
 
 
 namespace BPF {
+	class Sprite { // image
 	private:
 	public:
 		SDL_Surface* surface;
