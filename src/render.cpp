@@ -43,7 +43,7 @@ namespace BPF {
 	void Render::draw() //render listed textures
 	{
 		for (int i = 0; i < renderList.size(); i++) {
-			SDL_RenderTextureRotated(renderer, renderList[i]->texture, NULL, NULL, 0, NULL, SDL_FLIP_VERTICAL); // need to replace 1st 2 NULLs with SDL_frect and 0 with double for rotation
+			SDL_RenderTextureRotated(renderer, renderList[i]->texture, NULL, NULL, 0, NULL, SDL_FLIP_VERTICAL); // need to replace 1st 2 NULLs with SDL_frect and 0 with double for rotation, possibly pass in or contain
 		}
 	}
 

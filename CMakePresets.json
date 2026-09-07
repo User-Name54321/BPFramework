@@ -1,5 +1,10 @@
 ﻿{
-    "version": 3,
+  "version": 9,
+  "cmakeMinimumRequired": {
+    "major": 4,
+    "minor": 4,
+    "patch": 2
+  },
     "configurePresets": [
         {
             "name": "windows-base",
@@ -10,7 +15,7 @@
           "cacheVariables": {
             "CMAKE_C_COMPILER": "cl.exe",
             "CMAKE_CXX_COMPILER": "cl.exe",
-            "CMAKE_TOOLCHAIN_FILE": "D:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake"
+            "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
           },
             "condition": {
                 "type": "equals",
@@ -28,7 +33,7 @@
             },
           "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug",
-            "CMAKE_TOOLCHAIN_FILE": "D:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
             "VCPKG_TARGET_TRIPLET": "x64-windows",
             "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "$env{VSINSTALLDIR}Common7/IDE/CommonExtensions/Microsoft/CMake/cmake/Microsoft/SegmentHeap.cmake"
           }
@@ -39,7 +44,7 @@
             "inherits": "x64-debug",
           "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Release",
-            "CMAKE_TOOLCHAIN_FILE": "D:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
             "VCPKG_TARGET_TRIPLET": "x64-windows",
             "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "$env{VSINSTALLDIR}Common7/IDE/CommonExtensions/Microsoft/CMake/cmake/Microsoft/SegmentHeap.cmake"
           }
