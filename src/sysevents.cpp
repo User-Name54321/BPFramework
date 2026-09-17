@@ -1,5 +1,7 @@
 #include "../include/sysevents.h"
 
+#include <string>
+
 namespace BPF {
 
 	bool SysEvents::checkQueue() //will need to integrate with own events queue
@@ -18,15 +20,19 @@ namespace BPF {
 				y = pulledEvent.motion.y;
 				dx = pulledEvent.motion.xrel;
 				dy = pulledEvent.motion.yrel;
+				break;
 			case SDL_EVENT_MOUSE_BUTTON_DOWN:
 				temp.addData(pulledEvent.button.button, NULL, NULL, x, y);
 				obsSys.notify(temp);
-			case SDL_EVENT_KEY_DOWN: 
+				break;
+			case SDL_EVENT_TEXT_INPUT: 
 				temp.addData(*pulledEvent.text.text);
 				obsSys.notify(temp);
-			case SDL_EVENT_TEXT_INPUT:
+				break;
+			case SDL_EVENT_KEY_DOWN:
 				temp.addData(pulledEvent.key.key);
 				obsSys.notify(temp);
+				break;
 			} // add usage of component system
 		}
 
