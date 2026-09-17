@@ -25,7 +25,7 @@ endif()
 find_package(SDL3 CONFIG REQUIRED)
 find_package(SDL3_image CONFIG REQUIRED)
 
-add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp)
+add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp src/events.cpp)
 target_include_directories(BPF PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(BPF PRIVATE SDL3::SDL3 SDL3_image::SDL3_image)
 

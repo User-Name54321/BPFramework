@@ -1,19 +1,21 @@
 #include "../include/render.h"
 #include <SDL3_image/SDL_image.h>
 
+
+
 import std;
 
 
 namespace BPF {
 	Sprite::Sprite(SDL_Renderer* renderPtr, std::string file)
 	{
-		surface = IMG_Load(file.c_str());
-		SDL_CreateTextureFromSurface(renderPtr, surface);
+		SDL_Surface* surface = IMG_Load(file.c_str());
+		texture = SDL_CreateTextureFromSurface(renderPtr, surface);
+		SDL_DestroySurface(surface);
 	}
 
 	Sprite::~Sprite()
 	{
-		SDL_DestroySurface(surface);
 		SDL_DestroyTexture(texture);
 	}
 
@@ -35,7 +37,7 @@ namespace BPF {
 		spriteList.emplace_back(Sprite(renderer, path));
 	}
 	
-	void Render::submitTexture(Sprite* ptr) // add pointer to sprite to list to be rendered - might want to make it so it doesnt need to be wiped or searched every time render status needs to be changed
+	void Render::submitTexture(Sprite* ptr) 
 	{
 		renderList.push_back(ptr);
 	}
@@ -43,8 +45,9 @@ namespace BPF {
 	void Render::draw() //render listed textures
 	{
 		for (int i = 0; i < renderList.size(); i++) {
-			SDL_RenderTextureRotated(renderer, renderList[i]->texture, NULL, NULL, 0, NULL, SDL_FLIP_VERTICAL); // need to replace 1st 2 NULLs with SDL_frect and 0 with double for rotation, possibly pass in or contain
+			SDL_RenderTextureRotated(renderer, renderList[i]->texture, NULL, &renderList[i]->position, renderList[i]->rotation, NULL,  SDL_FLIP_VERTICAL); 
 		}
+		renderList.clear();
 	}
 
 }

@@ -8,8 +8,10 @@ namespace BPF {
 	class Sprite { // image
 	private:
 	public:
-		SDL_Surface* surface;
+		unsigned int id;
 		SDL_Texture* texture;
+		SDL_FRect position; // x, y, w, h
+		double rotation;
 		Sprite(SDL_Renderer* renderPtr, std::string file);
 		~Sprite();
 	};
