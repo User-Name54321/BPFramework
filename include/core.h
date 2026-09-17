@@ -14,7 +14,7 @@ namespace BPF {
 		Window window;
 		SysEvents sysevents;
 
-		std::vector<ObjectHandler*> objectLists;
+		std::vector<ObjectManager*> objectLists;
 	public:
 		int init(const char* name);
 		bool run();

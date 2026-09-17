@@ -25,6 +25,8 @@ namespace BPF {
 	unsigned int ObjectManager::newObject()
 	{
 		objectList.emplace_back(Object{});
+
+		return 0; //REDO
 	}
 
 
