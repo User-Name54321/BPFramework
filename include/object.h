@@ -1,28 +1,39 @@
 #pragma once
 #include <vector>
 
-namespace BPF {
 
-	class Object { // goal is to be able to create a new object which is lightweight and can have any number of objects or functionalities + still needs to be linked somehow
+namespace BPF {
+	// component system type component
+	class BComponent {
 	private:
 	public:
-		unsigned int id;
 		virtual void update();
-
-		Object(unsigned int num);
-
-		Object();
 	};
 
+	// WRAPPER SIDE OF COMPONENTS
+	struct Object { // holds ID of valid entity
+	public:
+		unsigned int id;
+		std::vector<BComponent> componentList;
+
+		void update();
+
+		Object(unsigned int num);
+	}; 
+
 	class ObjectManager { //contains list and stuff
-	private:
+	private: //might want to make map?
 		const unsigned int maxObjects;
-		std::vector<unsigned int> freeIdList; //maybe also have not free?
+		std::vector<unsigned int> freeIdList; 
+		std::vector<unsigned int> usedIdList;
 	public: 
 		std::vector<Object> objectList; 
 
 		unsigned int newObject();
+		void deleteObject(unsigned int id);
+
+		Object* returnObject(unsigned int id);
 
 		ObjectManager(unsigned int maxObj = 1000);
-	};
+	}; 
 }

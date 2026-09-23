@@ -12,6 +12,8 @@ namespace BPF {
 		renderer.initRender(window.window);
 		window.readyWindow();
 
+		SDL_Log("init done");
+
 		return 0;
 	}
 

@@ -1,6 +1,8 @@
 ﻿# CMakeList.txt : CMake project for Basic Program Framework, include source and define
 # project specific logic here.
 #
+
+
 cmake_minimum_required (VERSION 4.3)
 
 set(CMAKE_CXX_MODULE_STD ON)
@@ -25,10 +27,11 @@ endif()
 find_package(SDL3 CONFIG REQUIRED)
 find_package(SDL3_image CONFIG REQUIRED)
 
-add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp src/events.cpp)
-target_include_directories(BPF PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp src/components.cpp src/events.cpp src/reporting.cpp src/objects/position.cpp)
+target_include_directories(BPF PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/objects)
 target_link_libraries(BPF PRIVATE SDL3::SDL3 SDL3_image::SDL3_image)
 
 add_executable (test test.cpp)
 target_include_directories(test PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(test PRIVATE SDL3::SDL3 SDL3_image::SDL3_image BPF)
+
