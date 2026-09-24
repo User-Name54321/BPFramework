@@ -1,5 +1,5 @@
 # BPFramework
-Framework built on SDL which is designed to provide easy access to rendering, input, and additional logic.
+Framework built on SDL which is designed to provide easy access to rendering, input, and additional logic for developers looking for a decently lightweight resource which still offers basic tools.
 
 
 ## Usage
