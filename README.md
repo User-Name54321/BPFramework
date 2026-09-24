@@ -1,6 +1,11 @@
 # BPFramework
 Framework built on SDL which is designed to provide easy access to rendering, input, and additional logic for developers looking for a decently lightweight resource which still offers basic tools.
 
+Right now, the complete systems are:
+* Rendering (Render.h)
+* Window (Window.h)
+* Component (Components.h + Object.h)
+But more will come very soon!
 
 ## Usage
 For sample of usage see test.cpp
