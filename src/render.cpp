@@ -81,6 +81,20 @@ namespace BPF {
 
 		return true;
 	}
+
+	bool Render::updatePos(PositionData* data, unsigned int id)
+	{
+		auto* temp = data;
+		if (temp == nullptr) {
+			return false;
+		}
+		auto* render = spriteList.returnObject(id);
+		if (render == nullptr) {
+			return false;
+		}
+		render->position = SDL_FRect(temp->x, temp->y, temp->w, temp->h);
+		return true;
+	}
 	
 	void Render::draw() //render listed textures
 	{

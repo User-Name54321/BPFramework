@@ -39,6 +39,8 @@ namespace BPF {
 		bool deleteSprite(unsigned int id);
 		bool submitSprite(unsigned int id);
 
+		bool updatePos(PositionData* data, unsigned int id); // should likely be moved elsewhere
+
 		int initRender(SDL_Window* window);
 		void quitRender();
 

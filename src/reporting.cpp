@@ -23,7 +23,7 @@ namespace BPF {
 
 	void Logger::log(void* userdata, int category, SDL_LogPriority priority, const char* message)
 	{
-
+		
 		BPF::Logger* here = static_cast<Logger*>(userdata);
 		here->msg = message;
 		SDL_WriteAsyncIO(here->file, &here->msg, 0, sizeof(here->msg), here->queue, nullptr);

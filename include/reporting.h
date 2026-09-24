@@ -15,7 +15,7 @@ namespace BPF {
 		//need to use SDL iostream
 		bool init();
 		bool run();
-		static void log(void* userdata, int category, SDL_LogPriority priority, const char* message);
+		static void log(void* userdata, int category, SDL_LogPriority priority, const char* message); //need to figure out how to include prorities
 		void quit();
 
 		Logger();

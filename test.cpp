@@ -13,6 +13,14 @@ int main(int argc, char* argv[]) {
 	engine.renderer.createSprite(1);
 	engine.renderer.setTextureSprite(1, "1");
 
+	BPF::PositionData temp;
+	temp.x = 0;
+	temp.y = 0;
+	temp.w = 32;
+	temp.h = 32;
+
+	engine.renderer.updatePos(&temp, 1);
+
 	while (engine.run()) {
 		engine.renderer.submitSprite(1);
 	}
