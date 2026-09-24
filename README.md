@@ -19,5 +19,15 @@ That's pretty much it; there are a few more features here and there, but they pr
 
 Thanks for looking at my project! Come again next time also!
 
+The demo has a small 32 pixel square which renders in the top left.
+
+<img width="1282" height="752" alt="demo" src="https://github.com/user-attachments/assets/6f206d83-ba16-435f-a901-f953c02835c7" />
+
+### Quick Start/TLDR:
+* create BPF::Engine object
+* engine.init()
+* while loop containing engine.run()
+* engine.quit()
+
 
 
