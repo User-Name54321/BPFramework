@@ -31,3 +31,5 @@ The demo has a small 32 pixel square which renders in the top left.
 
 
 
+Made with the Simple DirectMedia Layer, SDL Image, Zlib, libpng, and libjpeg-turbo!
+
