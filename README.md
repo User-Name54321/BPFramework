@@ -8,6 +8,10 @@ Right now, the complete systems are:
 But more will come very soon!
 
 ## Usage
+### Setup
+First, you'll need to link BPF.lib, as well as sdl3.dll and sdl3_image.dll. I recommend researching this online via a Google search if you don't already know how ("*your build system* how link library"). You will also need to include at least the main header which is "Basic Program Framework.h," but there are a few more small features which aren't fully included in there in other headers.
+
+### Library Usage
 For sample of usage see test.cpp
 
 Basically, you first need to create an Engine object which acts as a container for all systems created by the library, which you then call "init()" on. Calling "init()" creates and initializes all subsystems, which is probably a bad idea but eh whats the worst that can happen? 
