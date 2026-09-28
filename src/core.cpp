@@ -4,7 +4,7 @@
 import std;
 
 namespace BPF {
-	int Engine::init(const char* name) //auto start different systems and create window
+	int Engine::init(const char* name) 
 	{
 		SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS);
 
@@ -17,7 +17,7 @@ namespace BPF {
 		return 0;
 	}
 
-	bool Engine::run() //main loop
+	bool Engine::run() 
 	{
 		if (!sysevents.checkQueue()) {
 			return false;

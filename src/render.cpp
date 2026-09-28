@@ -38,7 +38,7 @@ namespace BPF {
 		textureList.emplace_back(Texture{ name, txtr });
 	}
 	
-	unsigned int Render::createSprite(unsigned int id) // add newly created sprite to vector
+	unsigned int Render::createSprite(unsigned int id) 
 	{
 		return spriteList.newObject(id);
 	}
@@ -96,7 +96,7 @@ namespace BPF {
 		return true;
 	}
 	
-	void Render::draw() //render listed textures
+	void Render::draw() 
 	{
 		SDL_RenderClear(renderer);
 

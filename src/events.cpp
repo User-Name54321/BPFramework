@@ -1,4 +1,5 @@
 #include "../include/events.h"
+#include <utility>
 
 namespace BPF {
 
@@ -13,27 +14,48 @@ namespace BPF {
 		entityId = id;
 	}
 
-	void Observer::notify(Object* reciever, Event event) // reciever?
-	{
-		
-	}
+	ObserverManager::~ObserverManager() = default;
 
 	void ObserverManager::notify(Event event)
 	{
 		for (int i = 0; i < observerList.size(); i++) {
-			observerList[i]->notify(NULL, event); //fix null? idk what thats supposed to be
+			observerList[i](event); 
 		}
 	}
 
-	void ObserverManager::addObserver(Observer* observer)
+	unsigned int ObserverManager::addObs(std::function<void(Event)> cb)
 	{
-		observerList.push_back(observer);
+		observerList.push_back(cb);
+
+		idList.emplace_back(observerList.size() - 1);
+
+		return idList.size() - 1;
 	}
-	void ObserverManager::removeObserver(Observer* observer)
+
+	unsigned int ObserverManager::addObserver(std::function<void(Event)> cb)
 	{
-		auto i = std::find(observerList.begin(), observerList.end(), observer);
-		if (i != observerList.end()) {
-			observerList.erase(i);
+		return addObs(cb);
+	}
+
+	void ObserverManager::removeObserver(unsigned int id)
+	{
+		if (id < idList.size()) {
+			std::swap(observerList[idList[id]], observerList.back());
+			idList[id] = 0;
+			observerList.pop_back();
 		}
+	}
+
+
+	void EventQueue::pushEvent(Event e)
+	{
+		queue.push_back(std::move(e));
+	}
+
+	Event EventQueue::pullEvent()
+	{
+		auto temp = queue.front();
+		queue.pop_front();
+		return temp;
 	}
 }

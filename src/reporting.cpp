@@ -26,6 +26,7 @@ namespace BPF {
 		
 		BPF::Logger* here = static_cast<Logger*>(userdata);
 		here->msg = message;
+		here->msg = std::to_string(SDL_GetTicks()) + message;
 		SDL_WriteAsyncIO(here->file, &here->msg, 0, sizeof(here->msg), here->queue, nullptr);
 	
 	}

@@ -25,10 +25,10 @@ namespace BPF {
 		Window window;
 		SysEvents sysevents;
 
-		int init(const char* name);
-		bool run();
-		int quit();
+		int init(const char* name); // Starts SDL systems, starts BPF renderer and window.
+		bool run(); // Main loop - polls for input, renders
+		int quit(); // Destroys services.
 
 	};
-
+	NEED TO FIGURE OUT TIME KEEPING/CLOCK
 }

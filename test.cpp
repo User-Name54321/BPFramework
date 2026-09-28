@@ -1,4 +1,10 @@
 ﻿#include "include/Basic Program Framework.h"
+#include <vector>
+
+//int printInputForTest(BPF::Engine* engine) {
+//	BPF::Observer obs;
+//	engine->sysevents.addObserver(&obs)
+//}
 
 int main(int argc, char* argv[]) {
 
@@ -13,11 +19,12 @@ int main(int argc, char* argv[]) {
 	engine.renderer.createSprite(1);
 	engine.renderer.setTextureSprite(1, "1");
 
-	BPF::PositionData temp;
-	temp.x = 0;
-	temp.y = 0;
-	temp.w = 32;
-	temp.h = 32;
+	BPF::PositionData temp = { 0, 0, 32, 32 };
+
+	// next test = movement + change sprite?
+
+	BPF::ObserverManager yes;
+
 
 	engine.renderer.updatePos(&temp, 1);
 

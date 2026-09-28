@@ -23,15 +23,15 @@ namespace BPF {
 				break;
 			case SDL_EVENT_MOUSE_BUTTON_DOWN:
 				temp.addData(pulledEvent.button.button, NULL, NULL, x, y);
-				obsSys.notify(temp);
+				//notify(temp);
 				break;
 			case SDL_EVENT_TEXT_INPUT: 
 				temp.addData(*pulledEvent.text.text);
-				obsSys.notify(temp);
+				//notify(temp);
 				break;
 			case SDL_EVENT_KEY_DOWN:
 				temp.addData(pulledEvent.key.key);
-				obsSys.notify(temp);
+				//notify(temp);
 				break;
 			} // add usage of component system
 		}
@@ -39,13 +39,13 @@ namespace BPF {
 		return true;
 	}
 
-	void SysEvents::addObserver(Observer* observer)
-	{
-		obsSys.addObserver(observer);
-	}
+	//void SysEvents::addObserver(Observer* observer)
+	//{
+	//	addObserver(observer);
+	//}
 
-	void SysEvents::removeObserver(Observer* observer)
-	{
-		obsSys.removeObserver(observer);
-	}
+	//void SysEvents::removeObserver(Observer* observer)
+	//{
+	//	removeObserver(observer);
+	//}
 }
