@@ -12,8 +12,8 @@ namespace BPF {
 		float dx;         
 		float dy;
 	public:
-		//void addObserver(Observer* observer);
-		//void removeObserver(Observer* observer);
+		ObserverManager keyInput;
+		ObserverManager mouseInput; // need to figure out what to do with this
 
 		bool checkQueue(); // return 1 for quit, 0 for continue
 	};

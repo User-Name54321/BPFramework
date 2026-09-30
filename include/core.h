@@ -5,12 +5,16 @@
 #include "sysevents.h"
 #include "object.h"
 
+#include <cstdint>
 #include <vector>
 
 namespace BPF {
 	class Engine {
 	private:
-
+		uint64_t logicTimeChecked = 0;
+		uint64_t renderTimeChecked = 0;
+		uint64_t logicTimeSince = 0;
+		uint64_t renderTimeSince = 0;
 		//beign reond
 		std::vector<ObjectManager> objectList; // will need more - maybe link somehow via pointers? idk vro hm
 		// need to be able to store not just object/id list, but also each component - what will be stored here vs in logic level?
@@ -26,9 +30,10 @@ namespace BPF {
 		SysEvents sysevents;
 
 		int init(const char* name); // Starts SDL systems, starts BPF renderer and window.
-		bool run(); // Main loop - polls for input, renders
+		bool run(bool gameT = false,  int tps = 30); // Main loop - polls for input
+		bool render(int fps = 60); // Works in tandem with main loop to render, manages cpu sleeping
 		int quit(); // Destroys services.
 
 	};
-	NEED TO FIGURE OUT TIME KEEPING/CLOCK
+	
 }

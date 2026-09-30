@@ -1,10 +1,10 @@
 ﻿#include "include/Basic Program Framework.h"
 #include <vector>
 
-//int printInputForTest(BPF::Engine* engine) {
-//	BPF::Observer obs;
-//	engine->sysevents.addObserver(&obs)
-//}
+void printthing(BPF::Event test)
+{
+	std::cout << "test\n";
+}
 
 int main(int argc, char* argv[]) {
 
@@ -23,13 +23,17 @@ int main(int argc, char* argv[]) {
 
 	// next test = movement + change sprite?
 
-	BPF::ObserverManager yes;
+	engine.sysevents.keyInput.addObserver(&printthing);
+
 
 
 	engine.renderer.updatePos(&temp, 1);
 
-	while (engine.run()) {
+	while (engine.run(true, 30)) {
+
 		engine.renderer.submitSprite(1);
+
+		engine.render(60);
 	}
 
 	engine.quit();

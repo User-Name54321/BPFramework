@@ -23,29 +23,21 @@ namespace BPF {
 				break;
 			case SDL_EVENT_MOUSE_BUTTON_DOWN:
 				temp.addData(pulledEvent.button.button, NULL, NULL, x, y);
-				//notify(temp);
+				keyInput.notify(temp);
 				break;
 			case SDL_EVENT_TEXT_INPUT: 
 				temp.addData(*pulledEvent.text.text);
-				//notify(temp);
+				keyInput.notify(temp);
 				break;
 			case SDL_EVENT_KEY_DOWN:
 				temp.addData(pulledEvent.key.key);
-				//notify(temp);
+				keyInput.notify(temp);
 				break;
-			} // add usage of component system
+			} 
 		}
 
 		return true;
 	}
 
-	//void SysEvents::addObserver(Observer* observer)
-	//{
-	//	addObserver(observer);
-	//}
 
-	//void SysEvents::removeObserver(Observer* observer)
-	//{
-	//	removeObserver(observer);
-	//}
 }
