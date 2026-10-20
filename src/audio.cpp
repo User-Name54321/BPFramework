@@ -54,9 +54,6 @@ namespace BPF {
 
 	AudioPlayer::~AudioPlayer()
 	{
-		for (auto i = audioList.begin(); i != audioList.end(); i++) { //free data?
-			
-		}
 		MIX_Quit();
 	}
 
