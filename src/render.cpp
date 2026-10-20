@@ -1,5 +1,4 @@
 #include "../include/render.h"
-#include <SDL3_image/SDL_image.h>
 
 
 
@@ -20,7 +19,7 @@ namespace BPF {
 
 	void Render::createTexture(std::string path, std::string name)
 	{ // might want to redo to use whatever its called
-		SDL_Surface* surface = IMG_Load(path.c_str()); // requires SDL_Image extensions
+		SDL_Surface* surface = SDL_LoadPNG(path.c_str()); 
 
 		if (surface == nullptr) {
 			std::cout << "failed surface loading\n" << SDL_GetError() << "\n";

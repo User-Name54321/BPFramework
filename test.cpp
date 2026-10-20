@@ -25,14 +25,21 @@ int main(int argc, char* argv[]) {
 
 	engine.sysevents.keyInput.addObserver(&printthing);
 
-
-
 	engine.renderer.updatePos(&temp, 1);
+
+	BPF::AudioPlayer audio;
+	audio.init();
+	audio.loadAudio(1, "test.wav", false);
+	
+	audio.playAudio(1);
+
+
+
 
 	while (engine.run(true, 30)) {
 
 		engine.renderer.submitSprite(1);
-
+		
 		engine.render(60);
 	}
 
