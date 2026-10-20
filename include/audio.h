@@ -20,7 +20,7 @@ namespace BPF {
 	public:
 		void init(short int tracks = 2); // Initialize audio subsystem, input number of sfx tracks to be made - max amount of sounds to be played at once
 		void loadAudio(short int ID, std::string imgPath, bool compress); // pass in whatever id, path of iamge, if you want to decompress audio when  laionmgsasffawfsa
-		void playAudio(short int ID, bool override); // pass in sound id and whether or not you wish to override existing sounds with that id
+		int playAudio(short int ID, bool override); // pass in sound id and whether or not you wish to override existing sounds with that id
 		
 		~AudioPlayer();
 	};

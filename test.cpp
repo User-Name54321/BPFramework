@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 	audio.init();
 	audio.loadAudio(1, "test.wav", false);
 	
-	audio.playAudio(1);
+	audio.playAudio(1, false);
 
 
 

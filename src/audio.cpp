@@ -24,31 +24,36 @@ namespace BPF {
 
 	}
 
-	void AudioPlayer::playAudio(short int ID, bool override)
+	int AudioPlayer::playAudio(short int ID, bool override)
 	{
 		if (!audioList.contains(ID)) {
-			return;
+			return -1;
 		}
 
 		if (override) {
 			for (short int i = 0; i < freeTracks.size(); i++) {
 				if (freeTracks[i] = ID) {
 					MIX_PlayTrack(sfxTracks[i], 0);
-					return;
+
+					freeTracks[i] = ID;
+						 
+					return 1;
 				}
 			}
 		}
 
 		for (short int i = 0; i < freeTracks.size(); i++) { // check if any free tracks
-			if (freeTracks[i] != -1) { //by checking if any free keys/indexes exist
+			if (freeTracks[i] == -1) { //by checking if any free keys/indexes exist
 				MIX_SetTrackAudio(sfxTracks[i], audioList[ID]);
 				MIX_PlayTrack(sfxTracks[i], 0);
 
-				return;
+				freeTracks[i] = ID;
+
+				return 2;
 			}
 		}
 // LOG SMTN
-
+		return 0;
 	}
 
 
