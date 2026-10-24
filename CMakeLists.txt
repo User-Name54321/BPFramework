@@ -5,8 +5,8 @@
 
 cmake_minimum_required (VERSION 4.3)
 
-set(CMAKE_CXX_MODULE_STD ON)
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 451f2fe2-a8a2-47c3-bc32-94786d8fc91b)
+# set(CMAKE_CXX_MODULE_STD ON)
+# set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 451f2fe2-a8a2-47c3-bc32-94786d8fc91b)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,6 +19,10 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
+# if (CMAKE_<LANG>_COMPILER_ID STREQUAL "GNU" OR CMAKE_<LANG>_COMPILER_ID STREQUAL "Clang")
+ # add_compile_options(-fmodules-ts)
+# endif()
+
 if(VCPKG_TOOLCHAIN)
     message(STATUS "[VCPKG] Installed packages path: '${VCPKG_INSTALLED_DIR}'")
 
@@ -26,6 +30,7 @@ endif()
 #need SDL3 and SDL image
 find_package(SDL3 CONFIG REQUIRED)
 find_package(SDL3_mixer CONFIG REQUIRED)
+
 
 add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp src/components.cpp src/events.cpp src/reporting.cpp src/objects/position.cpp src/audio.cpp)
 target_include_directories(BPF PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/objects)

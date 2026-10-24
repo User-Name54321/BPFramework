@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL3/sdl.h>
+#include <SDL3/SDL.h>
 
 namespace BPF {
 	struct PositionData { // implement observer actions on logic level?

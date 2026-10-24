@@ -22,6 +22,6 @@ namespace BPF {
 		void loadAudio(short int ID, std::string imgPath, bool compress); // pass in whatever id, path of iamge, if you want to decompress audio when  laionmgsasffawfsa
 		int playAudio(short int ID, bool override); // pass in sound id and whether or not you wish to override existing sounds with that id
 		
-		~AudioPlayer();
+		void quit();
 	};
 }

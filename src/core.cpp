@@ -1,7 +1,7 @@
 #define SDL_MAIN_HANDLED 1
 #include "../include/core.h"
 
-import std;
+#include <iostream>
 
 namespace BPF {
 	int Engine::init(const char* name) 
@@ -76,6 +76,7 @@ namespace BPF {
 
 	int Engine::quit() //shut down everything
 	{
+		audio.quit();
 		renderer.quitRender();
 		window.destroyWindow();
 		SDL_Quit();

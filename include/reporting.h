@@ -12,10 +12,17 @@ namespace BPF {
 
 		std::string msg;
 	public:
+		enum priority {
+			LOG,
+			LOW,
+			MEDIUM,
+			HIGH,
+			CRITICAL
+		};
 		//need to use SDL iostream
 		bool init();
 		bool run();
-		static void log(void* userdata, int category, SDL_LogPriority priority, const char* message); //need to figure out how to include prorities
+		static void log(void* userdata, int category, priority priority, const char* message); //need to figure out how to include prorities
 		void quit();
 
 		Logger();

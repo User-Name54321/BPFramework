@@ -18,10 +18,9 @@ namespace BPF {
 	void AudioPlayer::loadAudio(short int ID, std::string imgPath, bool compress) 
 	{
 		audioList[ID] = MIX_LoadAudio(device, imgPath.c_str(), compress);
-		if (!audioList[ID]) {
+		if (audioList[ID] == nullptr) {
 			std::cout << SDL_GetError() << "\n";
 		}
-
 	}
 
 	int AudioPlayer::playAudio(short int ID, bool override)
@@ -57,7 +56,7 @@ namespace BPF {
 	}
 
 
-	AudioPlayer::~AudioPlayer()
+	void AudioPlayer::quit()
 	{
 		MIX_Quit();
 	}

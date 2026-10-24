@@ -17,7 +17,7 @@ namespace BPF {
 		float data4;
 		int data5;
 
-		void addData(int a = NULL, int b = NULL, unsigned int id = NULL, float c = NULL, float d = NULL, int e = NULL); // designed bad
+		void addData(int a = -1, int b = -1, unsigned int id = -1, float c = -1, float d = -1, int e = -1); // designed bad
 	};
 
 	class ObserverManager { // holds function ptrs/lambdas to registered "observers" (callbacks), can push notifications and register/unregister observers

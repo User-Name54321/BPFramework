@@ -9,11 +9,11 @@ namespace BPF {
 		if (queue == nullptr || file == nullptr) {
 			return false;
 		}
-		SDL_SetLogOutputFunction(log, this); // might be an issue
+		// might need to incorporate sdl logging?
 		return true;
 	}
 
-	bool Logger::run()
+	bool Logger::run() // what does this do? long forgotten
 	{
 		SDL_AsyncIOOutcome* outcome;
 		while (SDL_GetAsyncIOResult(queue, outcome)) {
@@ -21,7 +21,7 @@ namespace BPF {
 		return true;
 	}
 
-	void Logger::log(void* userdata, int category, SDL_LogPriority priority, const char* message)
+	void Logger::log(void* userdata, int category, priority priority, const char* message)
 	{
 		
 		BPF::Logger* here = static_cast<Logger*>(userdata);
@@ -45,6 +45,6 @@ namespace BPF {
 	}
 	Logger::~Logger()
 	{
-		SDL_SetLogOutputFunction(SDL_GetDefaultLogOutputFunction(), nullptr);
+		
 	}
 }

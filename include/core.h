@@ -4,6 +4,7 @@
 #include "render.h"
 #include "sysevents.h"
 #include "object.h"
+#include "audio.h"
 
 #include <cstdint>
 #include <vector>
@@ -25,9 +26,10 @@ namespace BPF {
 		// - could user really not track?
 
 	public:
-		Render renderer;
+		Render renderer; //might want to avoid hard coding?
 		Window window;
 		SysEvents sysevents;
+		AudioPlayer audio;
 
 		int init(const char* name); // Starts SDL systems, starts BPF renderer and window.
 		bool run(bool gameT = false,  int tps = 30); // Main loop - polls for input

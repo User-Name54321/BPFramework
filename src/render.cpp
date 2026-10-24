@@ -1,15 +1,15 @@
 #include "../include/render.h"
+#include <iostream>
 
-
-
-import std;
 
 
 namespace BPF {
 	int Render::initRender(SDL_Window* window)
 	{
 		renderer = SDL_CreateRenderer(window, NULL);
-
+		if (renderer == NULL) {
+			std::cout << SDL_GetError() << "\n";
+		}
 		return 0;
 	}
 	void Render::quitRender()

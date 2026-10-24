@@ -1,5 +1,5 @@
 #include "../include/window.h"
-#include <SDL3/sdl.h>
+#include <iostream>
  
 namespace BPF {
 	bool Window::createWindow(const char* name)
@@ -8,7 +8,8 @@ namespace BPF {
 		height = 720;
 		window = SDL_CreateWindow(name, width, height, SDL_WINDOW_RESIZABLE | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN);
 		if (window == NULL) {
-			return SDL_SetError("Failed window creation");
+			std::cout << SDL_GetError() << "\n";
+			return false;
 		}
 		return true;
 	}

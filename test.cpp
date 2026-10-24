@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 
 	engine.renderer.updatePos(&temp, 1);
 
-	BPF::AudioPlayer audio;
+	auto audio = engine.audio;
 	audio.init();
 	audio.loadAudio(1, "test.wav", false);
 	
