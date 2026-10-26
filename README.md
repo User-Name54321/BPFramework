@@ -7,7 +7,7 @@ Right now, the complete systems are:
 * Window (Window.h)
 * Component (Components.h + Object.h) - decoupled data/behavior or combined data/behavior objects
 * Input (Sysevents.h + Events.h) - can have observers, react to system input
-* Audio (Audio.h)
+* Audio (Audio.h) - which can load and play audio, I'm not completely sure this works on Linux
 
 
 ## Usage
