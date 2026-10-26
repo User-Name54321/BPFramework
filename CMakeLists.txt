@@ -32,9 +32,13 @@ find_package(SDL3 CONFIG REQUIRED)
 find_package(SDL3_mixer CONFIG REQUIRED)
 
 
-add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp src/components.cpp src/events.cpp src/reporting.cpp src/objects/position.cpp src/audio.cpp)
+add_library (BPF STATIC src/core.cpp src/window.cpp src/render.cpp src/sysevents.cpp src/object.cpp src/components.cpp src/events.cpp src/objects/position.cpp src/audio.cpp)
 target_include_directories(BPF PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/objects)
 target_link_libraries(BPF PRIVATE SDL3::SDL3 SDL3_mixer::SDL3_mixer)
+
+if (CMAKE_<LANG>_COMPILER_ID STREQUAL "GNU" OR CMAKE_<LANG>_COMPILER_ID STREQUAL "Clang")
+ set_target_properties(BPF PROPERTIES INSTALL_RPATH "$ORIGIN")
+endif()
 
 add_executable (test test.cpp)
 target_include_directories(test PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

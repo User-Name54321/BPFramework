@@ -14,8 +14,8 @@ namespace BPF {
 	void posMove(PositionData* data, float xi, float yi, bool mode)
 	{
 		if (mode == false) {
-			data->x = xi;
-			data->y = yi;
+			data->x += xi;
+			data->y += yi;
 		}
 		else {
 			data->dx = xi;

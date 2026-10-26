@@ -9,9 +9,23 @@
 #include <cstdint>
 #include <vector>
 
+
+
 namespace BPF {
+
+	#ifdef _WIN32
+	const bool win32 = true;
+	#else
+	const bool win32 = false;
+	#endif	
+
+	//bool console;
+
+
 	class Engine {
 	private:
+		bool initComplete = false;
+
 		uint64_t logicTimeChecked = 0;
 		uint64_t renderTimeChecked = 0;
 		uint64_t logicTimeSince = 0;
@@ -31,6 +45,8 @@ namespace BPF {
 		SysEvents sysevents;
 		AudioPlayer audio;
 
+		std::function<void()> update;
+
 		int init(const char* name); // Starts SDL systems, starts BPF renderer and window.
 		bool run(bool gameT = false,  int tps = 30); // Main loop - polls for input
 		bool render(int fps = 60); // Works in tandem with main loop to render, manages cpu sleeping
@@ -39,3 +55,4 @@ namespace BPF {
 	};
 	
 }
+

@@ -1,9 +1,10 @@
 ﻿#include "include/Basic Program Framework.h"
 #include <vector>
+#include <iostream>
 
-void printthing(BPF::Event test)
+void updateFunc()
 {
-	std::cout << "test\n";
+
 }
 
 int main(int argc, char* argv[]) {
@@ -12,8 +13,7 @@ int main(int argc, char* argv[]) {
 
 	engine.init("test");
 
-	BPF::Logger logger;
-	logger.init();
+	engine.update = &updateFunc;
 
 	engine.renderer.createTexture("TEST.png", "1");
 	engine.renderer.createSprite(1);
@@ -23,15 +23,11 @@ int main(int argc, char* argv[]) {
 
 	// next test = movement + change sprite?
 
-	engine.sysevents.keyInput.addObserver(&printthing);
+	engine.sysevents.keyInput.addObserver([&temp, &engine](BPF::Event e) {BPF::posMove(&temp, 20, 0); std::cout << "change detec\n"; engine.renderer.updatePos(&temp, 1); });
 
 	engine.renderer.updatePos(&temp, 1);
 
-	auto audio = engine.audio;
-	audio.init();
-	audio.loadAudio(1, "test.wav", false);
-	
-	audio.playAudio(1, false);
+
 
 
 

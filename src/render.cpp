@@ -105,6 +105,7 @@ namespace BPF {
 			}
 		}
 
+		renderList.clear();
 		SDL_RenderPresent(renderer);
 		
 	}

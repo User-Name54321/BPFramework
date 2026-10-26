@@ -60,8 +60,8 @@
       },
       "environment": {
         "SDL_LOGGING": "*=verbose",
-        "SDL_AUDIODRIVER":"pulseaudio",
-        "PULSE_SERVER=unix":"/mnt/wslg/PulseServer"
+        "SDL_AUDIODRIVER": "pulseaudio",
+        "PULSE_SERVER": "unix:/mnt/wslg/PulseServer"
       },
       "condition": {
         "type": "equals",
@@ -85,7 +85,7 @@
       },
       "environment": {
         "SDL_AUDIODRIVER": "pulseaudio",
-        "PULSE_SERVER=unix": "/mnt/wslg/PulseServer"
+        "PULSE_SERVER": "unix:/mnt/wslg/PulseServer"
       },
       "condition": {
         "type": "equals",

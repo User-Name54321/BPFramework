@@ -4,8 +4,10 @@
 #include <iostream>
 
 namespace BPF {
+
 	int Engine::init(const char* name) 
 	{
+
 		SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS);
 
 		window.createWindow(name);
@@ -14,10 +16,13 @@ namespace BPF {
 
 		SDL_Log("init done");
 
+
+
+
 		return 0;
 	}
 
-	bool Engine::run(bool gameT, int tps) // If gameT is true, use gameloop
+	bool Engine::run(bool gameT, int tps) // not designed properly
 	{ 
 
 
@@ -35,6 +40,13 @@ namespace BPF {
 				};
 
 				// UPDATE FUNCTIONS HERE
+				// how expose? need to be able to change
+				if (update) {
+					update();
+				}
+				else {
+					std::cout << "logic update function does not exist\n";
+				}
 				
 
 				logicTimeSince -= 1000000000 / tps;

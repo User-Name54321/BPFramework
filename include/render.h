@@ -4,8 +4,6 @@
 #include <string>
 #include "components.h"
 #include "objects/position.h"
-#include "reporting.h"
-
 
 namespace BPF {
 	struct Sprite { // image
